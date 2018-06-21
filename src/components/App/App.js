@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PlayerList from '../PlayerList/PlayerList';
 import Game from '../Game/Game';
+import LeaderBoard from '../LeaderBoard/LeaderBoard';
 
 class App extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class App extends Component {
     // const player = this.state.players[key];
     if(!this.state.player1) {
       this.setState({ player1: key })
-    } else if (key != this.state.player1) {
+    } else if (key !== this.state.player1) {
       this.setState({ player2: key })
     } else {
       alert("player1 can't be player2!");
@@ -74,7 +75,9 @@ class App extends Component {
           pickWinner={this.pickWinner}
           clearGame={this.clearGame}
         />
-        <h1>test</h1>
+        <LeaderBoard
+          players={this.state.players}
+        />
       </div>
     );
   }

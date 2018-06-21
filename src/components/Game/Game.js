@@ -23,7 +23,7 @@ class Game extends Component {
         const player = this.props.players[key];
         const updatedPlayer = {
             ...player,
-            ["winCount"]: ++player.winCount
+            "winCount": ++player.winCount
         }
         console.dir(updatedPlayer);
         this.props.updatePlayer(key, updatedPlayer);
