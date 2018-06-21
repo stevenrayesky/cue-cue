@@ -18,7 +18,6 @@ class SessionPicker extends Component {
     handleSubmit(event) {
         event.preventDefault();
         const sessionId = formatSession(this.state.inputValue);
-        console.log(sessionId);
         this.props.history.push(`/session/${sessionId}`);
     }
 

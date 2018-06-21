@@ -19,7 +19,8 @@ class PlayerList extends Component {
         return (
             <li key={key} onClick={(e) => this.handleClick(key)}>
                 <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
-                <p>{player.name} Wins: <span>{player.winCount}</span></p>
+                <p>{player.name}</p>
+                <p>Record: {player.winCount} - {player.lossCount}</p>
             </li>
         )
     }
@@ -27,6 +28,7 @@ class PlayerList extends Component {
     render() {
         return (
             <div className="player-list">
+                <h2>Player List</h2>
                 <AddPlayerForm
                     addPlayer={this.props.addPlayer}
                 />

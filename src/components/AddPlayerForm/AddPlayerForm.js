@@ -21,7 +21,8 @@ class AddPlayerForm extends Component {
         const player = {
             name: this.state.name,
             icon: (this.state.icon) ? this.state.icon : 'person-1.svg',
-            winCount: 0
+            winCount: 0,
+            lossCount: 0
         }
         this.props.addPlayer(player);
         form.reset();

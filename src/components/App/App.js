@@ -3,6 +3,7 @@ import './App.css';
 import PlayerList from '../PlayerList/PlayerList';
 import Game from '../Game/Game';
 import LeaderBoard from '../LeaderBoard/LeaderBoard';
+import base from '../../config/firebase';
 
 class App extends Component {
   constructor(props) {
@@ -16,8 +17,15 @@ class App extends Component {
     this.addPlayer = this.addPlayer.bind(this);
     this.setPlayer = this.setPlayer.bind(this);
     this.updatePlayer = this.updatePlayer.bind(this);
-    this.pickWinner = this.pickWinner.bind(this);
     this.clearGame = this.clearGame.bind(this);
+  }
+
+  componentDidMount() {
+    base.syncState(`${this.props.match.params.sessionId}/players`, {
+      context: this,
+      state: 'players'
+    }
+    )
   }
 
   addPlayer(player) {
@@ -46,10 +54,6 @@ class App extends Component {
     this.clearGame();
   }
 
-  pickWinner(player) {
-    console.log(`picking winner...`);
-  }
-
   clearGame() {
     this.setState({
       player1: null,
@@ -72,7 +76,6 @@ class App extends Component {
           player1={this.state.player1}
           player2={this.state.player2}
           updatePlayer={this.updatePlayer}
-          pickWinner={this.pickWinner}
           clearGame={this.clearGame}
         />
         <LeaderBoard
