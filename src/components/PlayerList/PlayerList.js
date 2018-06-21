@@ -11,7 +11,6 @@ class PlayerList extends Component {
     }
 
     handleClick(key) {
-        // const player = this.props.players[key];
         this.props.setPlayer(key)
     }
 
@@ -21,7 +20,6 @@ class PlayerList extends Component {
             <li key={key} onClick={(e) => this.handleClick(key)}>
                 <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
                 <p>{player.name} Wins: <span>{player.winCount}</span></p>
-
             </li>
         )
     }

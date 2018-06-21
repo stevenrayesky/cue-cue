@@ -1,3 +1,21 @@
+.AddPlayerForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddPlayerForm input[type="text"] {
+  width: fit-content;
+  margin: 0 auto;
+}
+.AddPlayerForm button {
+  width: fit-content;
+  margin: 10px auto;
+}
+
+.icons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 label > input{ 
     visibility: hidden; 
     position: absolute; 

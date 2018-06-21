@@ -20,7 +20,7 @@ class AddPlayerForm extends Component {
         const form = event.currentTarget;
         const player = {
             name: this.state.name,
-            icon: this.state.icon,
+            icon: (this.state.icon) ? this.state.icon : 'person-1.svg',
             winCount: 0
         }
         this.props.addPlayer(player);
@@ -47,10 +47,12 @@ class AddPlayerForm extends Component {
     render() {
         const icons = ['boy.svg', 'girl.svg', 'girl-1.svg', 'man.svg', 'person.svg', 'person-1.svg'];
         return (
-            <form onSubmit={this.handleSubmit}>
-                {icons.map(this.renderIcons)}
-                <input name="name" type="text" placeholder="Player Name" onChange={this.handleChange}/>
-                <button type="submit">Add Player</button>
+            <form className="AddPlayerForm" onSubmit={this.handleSubmit}>
+                <div className="icons">
+                    {icons.map(this.renderIcons)}
+                </div>
+                <input required name="name" type="text" placeholder="Player Name" onChange={this.handleChange}/>
+                <button className="waves-effect waves-light btn" type="submit">Add Player</button>
             </form>
         );
     }

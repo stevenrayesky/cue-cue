@@ -36,7 +36,7 @@ class Game extends Component {
                     {this.renderPlayer(this.props.player1)}
                     {this.renderPlayer(this.props.player2)}
                 </div>
-                <button className="clear-game" onClick={this.props.clearGame}>Clear Game</button>
+                <button className="waves-effect waves-light btn clear-game" onClick={this.props.clearGame}>Clear Game</button>
             </div>
         );
     }
