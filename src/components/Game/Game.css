@@ -1,6 +1,5 @@
 .Game {
     display: flex;
-    justify-content: space-evenly;
     flex-direction: column;
 }
 .players {
@@ -17,10 +16,11 @@
 }
 
 .player-active {
+    padding: 5px;
     transition: all 0.5s;
     cursor: pointer;
     height: 150px;
-    width: 150px;
+    min-width: 150px;
     background-color: #e0dcdcef;
     display: flex;
     flex-direction: column;

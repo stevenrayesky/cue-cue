@@ -20,18 +20,27 @@ class Game extends Component {
     }
 
     handleClick(key){
-        const player = this.props.players[key];
-        const updatedPlayer = {
-            ...player,
-            "winCount": ++player.winCount
+        const winningPlayer = this.props.players[key];
+        const updatedWinner = {
+            ...winningPlayer,
+            "winCount": ++winningPlayer.winCount
         }
-        console.dir(updatedPlayer);
-        this.props.updatePlayer(key, updatedPlayer);
+        this.props.updatePlayer(key, updatedWinner);
+
+        const loserKey = (key === this.props.player1) ? this.props.player2 : this.props.player1;
+        const losingPlayer = this.props.players[loserKey];
+        const updatedLoser = {
+            ...losingPlayer,
+            "lossCount": ++losingPlayer.lossCount
+        }
+
+        this.props.updatePlayer(loserKey, updatedLoser)
     }
 
     render() {
         return (
             <div className="Game">
+                <h2>Current Game</h2>
                 <div className="players">
                     {this.renderPlayer(this.props.player1)}
                     {this.renderPlayer(this.props.player2)}
