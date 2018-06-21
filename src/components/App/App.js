@@ -3,6 +3,7 @@ import './App.css';
 import PlayerList from '../PlayerList/PlayerList';
 import Game from '../Game/Game';
 import LeaderBoard from '../LeaderBoard/LeaderBoard';
+import base from '../../firebase';
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,14 @@ class App extends Component {
     this.updatePlayer = this.updatePlayer.bind(this);
     this.pickWinner = this.pickWinner.bind(this);
     this.clearGame = this.clearGame.bind(this);
+  }
+
+  componentDidMount() {
+    base.syncState(`${this.props.match.params.sessionId}/players`, {
+      context: this,
+      state: 'players'
+    }
+    )
   }
 
   addPlayer(player) {
