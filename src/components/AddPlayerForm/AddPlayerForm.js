@@ -20,9 +20,9 @@ class AddPlayerForm extends Component {
         const form = event.currentTarget;
         const player = {
             name: this.state.name,
-            icon: this.state.icon
+            icon: this.state.icon,
+            winCount: 0
         }
-        console.log(player);
         this.props.addPlayer(player);
         form.reset();
     }

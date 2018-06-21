@@ -7,20 +7,28 @@ class PlayerList extends Component {
         super(props);
 
         this.renderPlayers = this.renderPlayers.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
+
+    handleClick(key) {
+        // const player = this.props.players[key];
+        this.props.setPlayer(key)
+    }
+
     renderPlayers(key) {
         const player = this.props.players[key];
         return (
-            <li key={key}>
+            <li key={key} onClick={(e) => this.handleClick(key)}>
                 <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
-                <span>{player.name}</span>
+                <p>{player.name} Wins: <span>{player.winCount}</span></p>
+
             </li>
         )
     }
 
     render() {
         return (
-            <div>
+            <div className="player-list">
                 <AddPlayerForm
                     addPlayer={this.props.addPlayer}
                 />

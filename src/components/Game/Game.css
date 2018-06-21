@@ -1,0 +1,38 @@
+.Game {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.players {
+    min-height: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.player {
+    height: 100px;
+    width: 100px;
+    background-color: none;
+}
+
+.player-active {
+    transition: all 0.5s;
+    cursor: pointer;
+    height: 150px;
+    width: 150px;
+    background-color: #e0dcdcef;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 15px;
+}
+
+.player-active:hover {
+    background-color: #8ff0bf;
+}
+
+.clear-game {
+    width: fit-content;
+    margin: 0 auto;
+}

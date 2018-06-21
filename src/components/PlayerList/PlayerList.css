@@ -1,3 +1,11 @@
+.player-list {
+    grid-column: 1;
+}
+
 .player-icon {
     height: 65px;
+}
+
+.player-name {
+    margin: 0px;
 }
