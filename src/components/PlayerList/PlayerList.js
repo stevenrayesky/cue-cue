@@ -15,6 +15,7 @@ class PlayerList extends Component {
     }
 
     renderPlayers(key) {
+        if(key === this.props.player1 || key === this.props.player2) return;
         const player = this.props.players[key];
         return (
             <li key={key} onClick={(e) => this.handleClick(key)}>
