@@ -29,7 +29,7 @@ class PlayerList extends Component {
     render() {
         return (
             <div className="PlayerList mobile">
-                <h2>Player List</h2>
+                <h3>Player List</h3>
                 <AddPlayerForm
                     addPlayer={this.props.addPlayer}
                 />

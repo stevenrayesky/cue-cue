@@ -64,7 +64,6 @@ class App extends Component {
   }
 
   updatePlayer(key, updatedPlayer) {
-    console.log("updatePlayer method!");
     const players = {...this.state.players};
     players[key] = updatedPlayer;
     this.setState({ players });
@@ -110,39 +109,43 @@ class App extends Component {
         />
       }
       return (
-        <div className="App">
+        <div>
           <Header
-            changeTab={this.changeTab}
-          />
-          {tab}
+              changeTab={this.changeTab}
+            />
+          <div className="App">
+            {tab}
+          </div>
         </div>
       )
     } else {
       return (
-        <div className="App">
+        <div>
           <Header
-            changeTab={this.changeTab}
-          />
-          <PlayerList
-            players={this.state.players}
-            addPlayer={this.addPlayer}
-            player1={this.state.player1}
-            player2={this.state.player2}
-            setPlayer={this.setPlayer}
-          />
-          <Game
-            players={this.state.players}
-            player1={this.state.player1}
-            player2={this.state.player2}
-            updatePlayer={this.updatePlayer}
-            clearGame={this.clearGame}
-          />
-          <LeaderBoard
-            players={this.state.players}
-          />
+              changeTab={this.changeTab}
+            />
+          <div className="App">
+            <PlayerList
+              players={this.state.players}
+              addPlayer={this.addPlayer}
+              player1={this.state.player1}
+              player2={this.state.player2}
+              setPlayer={this.setPlayer}
+            />
+            <Game
+              players={this.state.players}
+              player1={this.state.player1}
+              player2={this.state.player2}
+              updatePlayer={this.updatePlayer}
+              clearGame={this.clearGame}
+            />
+            <LeaderBoard
+              players={this.state.players}
+            />
+          </div>
         </div>
       )
-    };
+    }
   }
 }
 

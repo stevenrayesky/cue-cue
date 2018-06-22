@@ -13,6 +13,8 @@
     min-width: 135px;
     padding: 10px;
     width: fit-content;
+    background-color: #e0dcdcef;
+    margin: 5px;
 }
 .PlayerList li:hover {
     background-color: #f0a056;

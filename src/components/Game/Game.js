@@ -9,12 +9,16 @@ class Game extends Component {
     }
 
     renderPlayer(key) {
-        if(!key) return;
+        if(!key) return (
+            <div className="player-active"></div>
+        );
         const player = this.props.players[key];
         return (
             <div className="player-active" onClick={(e) => this.handleClick(key)}>
-                <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
-                <h2 className="player-name">{player.name}</h2>
+                <div className="player">
+                    <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
+                    <p className="player-name">{player.name}</p>
+                </div>
             </div>
         )
     }
@@ -23,7 +27,8 @@ class Game extends Component {
         const winningPlayer = this.props.players[key];
         const updatedWinner = {
             ...winningPlayer,
-            "winCount": ++winningPlayer.winCount
+            "winCount": ++winningPlayer.winCount,
+            "streak": ++winningPlayer.streak
         }
         this.props.updatePlayer(key, updatedWinner);
 
@@ -31,7 +36,8 @@ class Game extends Component {
         const losingPlayer = this.props.players[loserKey];
         const updatedLoser = {
             ...losingPlayer,
-            "lossCount": ++losingPlayer.lossCount
+            "lossCount": ++losingPlayer.lossCount,
+            "streak": 0
         }
 
         this.props.updatePlayer(loserKey, updatedLoser)
@@ -40,7 +46,7 @@ class Game extends Component {
     render() {
         return (
             <div className="Game mobile">
-                <h2>Current Game</h2>
+                <h3>Current Game</h3>
                 <div className="players">
                     {this.renderPlayer(this.props.player1)}
                     {this.renderPlayer(this.props.player2)}

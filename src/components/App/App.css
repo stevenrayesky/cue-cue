@@ -1,8 +1,14 @@
+/* Color palette
+base: #A7DB56
+secondary: #EE6E5D, #86429E
+*/
+
 .App {
   text-align: center;
   display: grid;
   grid-template-columns: 2fr 3fr 2fr;
   grid-gap: 10px;
+  padding: 0px 15px;
 }
 
 .App-logo {
@@ -23,6 +29,18 @@
 
 .App-intro {
   font-size: large;
+}
+
+.btn {
+  background-color: #86429E;
+}
+
+.btn:hover {
+  background-color: #a55ebe;
+}
+
+.btn:focus {
+  background-color: #4c205c;
 }
 
 @keyframes App-logo-spin {
