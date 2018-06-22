@@ -4,3 +4,7 @@ export function formatSession(str) {
     });
     return sessionId.replace(/\s+/g, '');
 }
+
+export function sortLeaders(a,b){
+    return b.winCount - a.winCount;
+}
