@@ -1,20 +1,20 @@
-.player-list {
+.PlayerList {
     grid-column: 1;
 }
 
-.player-list ul {
+.PlayerList ul {
     width: fit-content;
     margin: 0 auto;
 }
 
-.player-list li {
+.PlayerList li {
     cursor: pointer;
     border-radius: 10px;
     min-width: 135px;
     padding: 10px;
     width: fit-content;
 }
-.player-list li:hover {
+.PlayerList li:hover {
     background-color: #f0a056;
 }
 

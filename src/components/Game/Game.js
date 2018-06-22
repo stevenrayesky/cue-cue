@@ -39,7 +39,7 @@ class Game extends Component {
 
     render() {
         return (
-            <div className="Game">
+            <div className="Game mobile">
                 <h2>Current Game</h2>
                 <div className="players">
                     {this.renderPlayer(this.props.player1)}

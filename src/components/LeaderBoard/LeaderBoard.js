@@ -8,9 +8,7 @@ class LeaderBoard extends Component {
     }
 
     renderLeaders(key){
-        console.log("renderLeaders")
         const player = this.props.players[key];
-        console.log(player);
         if(player.winCount > 0) {
             return (
                 <li key={key} onClick={(e) => this.handleClick(key)}>
@@ -23,7 +21,7 @@ class LeaderBoard extends Component {
 
     render() {
         return (
-            <div className="LeaderBoard">
+            <div className="LeaderBoard mobile">
                 <h2>LeaderBoard</h2>
                 <ul>
                     {Object.keys(this.props.players).map(this.renderLeaders)}

@@ -1,0 +1,31 @@
+.nav-desktop {
+    display: none;    
+}
+
+.nav-mobile {
+    display: block;
+    grid-column: 1/4;
+}
+
+.nav-ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-ul li {
+    flex-grow: 1;
+}
+
+.nav-ul a {
+    padding: 0px 5px;
+}
+
+@media (min-width: 768px){
+    .nav-desktop {
+        display: block;
+    }
+
+    .nav-mobile {
+        display: none;
+    }
+}

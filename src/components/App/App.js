@@ -4,6 +4,7 @@ import PlayerList from '../PlayerList/PlayerList';
 import Game from '../Game/Game';
 import LeaderBoard from '../LeaderBoard/LeaderBoard';
 import base from '../../config/firebase';
+import Header from '../Header/Header';
 
 class App extends Component {
   constructor(props) {
@@ -11,14 +12,30 @@ class App extends Component {
     this.state = {
       players: {},
       player1: null,
-      player2: null
+      player2: null,
+      width: window.innerWidth,
+      activeTab: "PlayerList"
     }
 
     this.addPlayer = this.addPlayer.bind(this);
     this.setPlayer = this.setPlayer.bind(this);
     this.updatePlayer = this.updatePlayer.bind(this);
     this.clearGame = this.clearGame.bind(this);
+    this.changeTab = this.changeTab.bind(this);
   }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+  
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+  
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
+  
 
   componentDidMount() {
     base.syncState(`${this.props.match.params.sessionId}/players`, {
@@ -61,28 +78,71 @@ class App extends Component {
     })
   }
 
+  changeTab(tab){
+    this.setState({ activeTab: tab})
+  }
+
   render() {
-    return (
-      <div className="App">
-        <PlayerList
+    const { width, activeTab } = this.state;
+    const isMobile = width <= 768;
+    
+    if(isMobile){
+      let tab;
+      if (activeTab === "PlayerList") {
+        tab = <PlayerList
           players={this.state.players}
           addPlayer={this.addPlayer}
           player1={this.state.player1}
           player2={this.state.player2}
           setPlayer={this.setPlayer}
         />
-        <Game
+      } else if (activeTab === "Game") {
+        tab = <Game
           players={this.state.players}
           player1={this.state.player1}
           player2={this.state.player2}
           updatePlayer={this.updatePlayer}
           clearGame={this.clearGame}
         />
-        <LeaderBoard
+      } else {
+        tab = <LeaderBoard
           players={this.state.players}
         />
-      </div>
-    );
+      }
+      return (
+        <div className="App">
+          <Header
+            changeTab={this.changeTab}
+          />
+          {tab}
+        </div>
+      )
+    } else {
+      return (
+        <div className="App">
+          <Header
+            changeTab={this.changeTab}
+          />
+          <PlayerList
+            players={this.state.players}
+            addPlayer={this.addPlayer}
+            player1={this.state.player1}
+            player2={this.state.player2}
+            setPlayer={this.setPlayer}
+          />
+          <Game
+            players={this.state.players}
+            player1={this.state.player1}
+            player2={this.state.player2}
+            updatePlayer={this.updatePlayer}
+            clearGame={this.clearGame}
+          />
+          <LeaderBoard
+            players={this.state.players}
+          />
+        </div>
+      )
+    };
   }
 }
 
