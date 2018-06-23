@@ -21,12 +21,14 @@ class Header extends Component {
         return (
             <div className="mobile">
                 <nav className="nav-wrapper nav-desktop">
-                    <div className="logo">
-                        <div className="logo-c">
-                            <div className="cue">CUE</div>
-                            <div className="first-c">C</div>
+                    <Link to="/">
+                        <div className="logo">
+                            <div className="logo-c">
+                                <div className="cue">CUE</div>
+                                <div className="first-c">C</div>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                     <ul>
                         <li>
                             <Link to="/">New Session</Link>
