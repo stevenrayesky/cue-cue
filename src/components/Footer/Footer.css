@@ -6,4 +6,7 @@ footer {
     min-height: 75px;
     background-color: #1E2128;
     color: #efefef;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
 }

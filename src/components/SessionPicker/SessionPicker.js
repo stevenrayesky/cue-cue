@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { formatSession } from '../../helpers';
 import './SessionPicker.css';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 class SessionPicker extends Component {
     constructor(props) {
@@ -23,11 +25,13 @@ class SessionPicker extends Component {
 
     render() {
         return (
-            <form className="session-picker" onSubmit={this.handleSubmit}>
-                <h2>type in your session name to go to it</h2>
-                <input type="text" required placeholder="Session Name" value={this.state.inputValue} onChange={this.handleChange}/>
-                <button className="btn" type="submit">Submit</button>
-            </form>
+            <div>
+                <form className="session-picker" onSubmit={this.handleSubmit}>
+                    <h2>type in your session name to go to it</h2>
+                    <input type="text" required placeholder="Session Name" value={this.state.inputValue} onChange={this.handleChange}/>
+                    <button className="btn" type="submit">Submit</button>
+                </form>
+            </div>
         );
     }
 }
