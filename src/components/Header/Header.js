@@ -20,7 +20,7 @@ class Header extends Component {
     render(){
         return (
             <div className="mobile">
-                <nav className="nav-wrapper nav-desktop">
+                <nav className="nav-wrapper main-nav">
                     <Link to="/">
                         <div className="logo">
                             <div className="logo-c">
@@ -37,9 +37,6 @@ class Header extends Component {
                 </nav>
                 <nav className="nav-wrapper nav-mobile">
                     <ul className="nav-ul">
-                        <li>
-                            <Link to="/">New Session</Link>
-                        </li>
                         <li><a name="PlayerList" onClick={this.handleClick}>Player List</a></li>
                         <li><a name="Game" onClick={this.handleClick}>Game</a></li>
                         <li><a name="LeaderBoard" onClick={this.handleClick}>Leaderboard</a></li>

@@ -54,7 +54,7 @@ input[type=text]:not(.browser-default):focus:not([readonly]) {
   to { transform: rotate(360deg); }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   div.mobile {
     width: 100%;
     grid-column: 1/4;

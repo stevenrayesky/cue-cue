@@ -1,3 +1,9 @@
+.LeaderBoard ul {
+    overflow: hidden;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
 .LeaderBoard li {
     display: flex;
     align-items: center;
@@ -5,15 +11,13 @@
     border-radius: 5px;
     margin: 5px 0px;
     padding: 5px;
+    position: relative;
 }
 
 .LeaderBoard p {
     margin-left: 15px;
 }
 
-.LeaderBoard ul {
-    overflow: hidden;
-}
 
 .leader-ani-enter {
     -webkit-transform: translateX(120%);

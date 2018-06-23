@@ -26,7 +26,7 @@ class SessionPicker extends Component {
     render() {
         return (
             <div>
-                <nav className="nav-wrapper nav-desktop">
+                <nav className="nav-wrapper main-nav">
                     <Link to="/">
                         <div className="logo">
                             <div className="logo-c">

@@ -36,14 +36,13 @@ class PlayerList extends Component {
                 <AddPlayerForm
                     addPlayer={this.props.addPlayer}
                 />
-                <ul>
                 <CSSTransitionGroup
+                    component="ul"
                     transitionName="player-ani"
                     transitionEnterTimeout={700}
                     transitionLeaveTimeout={700}>
                         {Object.keys(this.props.players).map(this.renderPlayers)}
                 </CSSTransitionGroup>
-                </ul>
             </div>
         );
     }
