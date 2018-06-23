@@ -12,17 +12,21 @@ class App extends Component {
     super(props);
     this.state = {
       players: {},
+      games: [],
       player1: null,
       player2: null,
       width: window.innerWidth,
-      activeTab: "PlayerList"
+      activeTab: "PlayerList",
+      showHistory: false
     }
 
     this.addPlayer = this.addPlayer.bind(this);
     this.setPlayer = this.setPlayer.bind(this);
-    this.updatePlayer = this.updatePlayer.bind(this);
+    this.updatePlayers = this.updatePlayers.bind(this);
     this.clearGame = this.clearGame.bind(this);
     this.changeTab = this.changeTab.bind(this);
+    this.addGame = this.addGame.bind(this);
+    this.toggleHistory = this.toggleHistory.bind(this);
   }
 
   componentWillMount() {
@@ -64,11 +68,18 @@ class App extends Component {
     }
   }
 
-  updatePlayer(key, updatedPlayer) {
+  updatePlayers(key, updatedWinner, loserKey, updatedLoser) {
     const players = {...this.state.players};
-    players[key] = updatedPlayer;
+    players[key] = updatedWinner;
+    players[loserKey] = updatedLoser;
     this.setState({ players });
     setTimeout(() => {this.clearGame()}, 2000);
+  }
+
+  addGame(game){
+    const games = [...this.state.games];
+    games.push(game);
+    this.setState({ games });
   }
 
   clearGame() {
@@ -80,6 +91,10 @@ class App extends Component {
 
   changeTab(tab){
     this.setState({ activeTab: tab})
+  }
+
+  toggleHistory(){
+    this.setState({ showHistory: !this.state.showHistory })
   }
 
   render() {
@@ -138,8 +153,12 @@ class App extends Component {
               players={this.state.players}
               player1={this.state.player1}
               player2={this.state.player2}
-              updatePlayer={this.updatePlayer}
+              updatePlayers={this.updatePlayers}
+              addGame={this.addGame}
               clearGame={this.clearGame}
+              toggleHistory={this.toggleHistory}
+              showHistory={this.state.showHistory}
+              games={this.state.games}
             />
             <LeaderBoard
               players={this.state.players}
