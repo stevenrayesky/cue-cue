@@ -1,6 +1,6 @@
 /* Color palette
-base: #A7DB56
-secondary: #EE6E5D, #86429E
+base: #EE6E5D
+secondary: #A7DB56, #86429E
 */
 
 .App {
@@ -41,6 +41,12 @@ secondary: #EE6E5D, #86429E
 
 .btn:focus {
   background-color: #4c205c;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #86429E;
+  -webkit-box-shadow: 0 1px 0 0 #86429E;
+  box-shadow: 0 1px 0 0 #86429E;
 }
 
 @keyframes App-logo-spin {

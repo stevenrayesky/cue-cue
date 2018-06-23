@@ -5,6 +5,7 @@ import Game from '../Game/Game';
 import LeaderBoard from '../LeaderBoard/LeaderBoard';
 import base from '../../config/firebase';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 class App extends Component {
   constructor(props) {
@@ -143,6 +144,7 @@ class App extends Component {
               players={this.state.players}
             />
           </div>
+          <Footer/>
         </div>
       )
     }

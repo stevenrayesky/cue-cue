@@ -20,8 +20,13 @@ class Header extends Component {
     render(){
         return (
             <div className="mobile">
-                <h1>CUECUE</h1>
                 <nav className="nav-wrapper nav-desktop">
+                    <div className="logo">
+                        <div className="logo-c">
+                            <div className="cue">CUE</div>
+                            <div className="first-c">C</div>
+                        </div>
+                    </div>
                     <ul>
                         <li>
                             <Link to="/">New Session</Link>

@@ -26,7 +26,7 @@ class SessionPicker extends Component {
             <form className="session-picker" onSubmit={this.handleSubmit}>
                 <h2>type in your session name to go to it</h2>
                 <input type="text" required placeholder="Session Name" value={this.state.inputValue} onChange={this.handleChange}/>
-                <button type="submit">Submit</button>
+                <button className="btn" type="submit">Submit</button>
             </form>
         );
     }
