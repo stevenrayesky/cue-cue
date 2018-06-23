@@ -117,6 +117,7 @@ class App extends Component {
           <div className="App">
             {tab}
           </div>
+          <Footer/>
         </div>
       )
     } else {
