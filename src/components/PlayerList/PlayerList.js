@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddPlayerForm from '../AddPlayerForm/AddPlayerForm';
 import "./PlayerList.css";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class PlayerList extends Component {
     constructor(props) {
@@ -18,11 +19,13 @@ class PlayerList extends Component {
         if(key === this.props.player1 || key === this.props.player2) return;
         const player = this.props.players[key];
         return (
+            
             <li key={key} onClick={(e) => this.handleClick(key)}>
                 <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
                 <p>{player.name}</p>
                 <p>Record: {player.winCount} - {player.lossCount}</p>
             </li>
+            
         )
     }
 
@@ -34,7 +37,12 @@ class PlayerList extends Component {
                     addPlayer={this.props.addPlayer}
                 />
                 <ul>
-                    {Object.keys(this.props.players).map(this.renderPlayers)}
+                <CSSTransitionGroup
+                    transitionName="player-ani"
+                    transitionEnterTimeout={700}
+                    transitionLeaveTimeout={700}>
+                        {Object.keys(this.props.players).map(this.renderPlayers)}
+                </CSSTransitionGroup>
                 </ul>
             </div>
         );

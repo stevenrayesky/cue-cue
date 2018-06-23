@@ -68,7 +68,7 @@ class App extends Component {
     const players = {...this.state.players};
     players[key] = updatedPlayer;
     this.setState({ players });
-    this.clearGame();
+    setTimeout(() => {this.clearGame()}, 2000);
   }
 
   clearGame() {
@@ -84,7 +84,7 @@ class App extends Component {
 
   render() {
     const { width, activeTab } = this.state;
-    const isMobile = width <= 768;
+    const isMobile = width <= 850;
     
     if(isMobile){
       let tab;

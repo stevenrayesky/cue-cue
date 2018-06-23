@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { formatSession, sessionName } from '../../helpers';
 import './SessionPicker.css';
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 class SessionPicker extends Component {

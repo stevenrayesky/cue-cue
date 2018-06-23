@@ -10,3 +10,27 @@
 .LeaderBoard p {
     margin-left: 15px;
 }
+
+.LeaderBoard ul {
+    overflow: hidden;
+}
+
+.leader-ani-enter {
+    -webkit-transform: translateX(120%);
+    transform: translateX(120%);
+  }
+  
+  .leader-ani-enter.leader-ani-enter-active {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    transition: 700ms cubic-bezier(0.38,-0.43, 0.59, 1.44);
+  }
+  
+  .leader-ani-leave {
+  }
+  
+  .leader-ani-leave.leader-ani-leave-active {
+    -webkit-transform: translateX(120%);
+    transform: translateX(120%);
+    transition: 700ms cubic-bezier(0.38,-0.43, 0.59, 1.44);
+  }

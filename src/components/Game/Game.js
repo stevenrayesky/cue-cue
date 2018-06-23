@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./Game.css";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Game extends Component {
     constructor(props) {
@@ -8,22 +9,9 @@ class Game extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    renderPlayer(key) {
-        if(!key) return (
-            <div className="player-active"></div>
-        );
-        const player = this.props.players[key];
-        return (
-            <div className="player-active" onClick={(e) => this.handleClick(key)}>
-                <div className="player">
-                    <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
-                    <p className="player-name">{player.name}</p>
-                </div>
-            </div>
-        )
-    }
-
-    handleClick(key){
+    handleClick(e, key){
+        if(!this.props.player2) { alert("Please select a 2nd player!"); return;};
+        e.currentTarget.classList.add('winner');
         const winningPlayer = this.props.players[key];
         const updatedWinner = {
             ...winningPlayer,
@@ -43,14 +31,32 @@ class Game extends Component {
         this.props.updatePlayer(loserKey, updatedLoser)
     }
 
+    renderPlayer(key) {
+        if(!key) return;
+        const player = this.props.players[key];
+        return (
+            <div className="player-active" onClick={(e) => this.handleClick(e, key)}>
+                <div className="player">
+                    <img src={`/icons/${player.icon}`} className="player-icon" alt="logo" />
+                    <p className="player-name">{player.name}</p>
+                </div>
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className="Game mobile">
                 <h3>Current Game</h3>
-                <div className="players">
+                <CSSTransitionGroup
+                    component="div"
+                    className="players"
+                    transitionName="game-ani"
+                    transitionEnterTimeout={700}
+                    transitionLeaveTimeout={700}>
                     {this.renderPlayer(this.props.player1)}
                     {this.renderPlayer(this.props.player2)}
-                </div>
+                </CSSTransitionGroup>
                 <button className="waves-effect waves-light btn clear-game" onClick={this.props.clearGame}>Clear Game</button>
             </div>
         );
