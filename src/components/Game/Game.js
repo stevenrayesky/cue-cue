@@ -22,10 +22,12 @@ class Game extends Component {
         const winningPlayer = this.props.players[key];
         const loserKey = (key === this.props.player1) ? this.props.player2 : this.props.player1;
         const losingPlayer = this.props.players[loserKey];
+        const gameType = this.props.gameType;
         
         const gameResult = {
             winner: key,
             loser: loserKey,
+            gameType: gameType,
             timeStamp: Date.now()
         }
 
@@ -89,8 +91,10 @@ class Game extends Component {
                 </CSSTransitionGroup>
                 <div className="game-types">
                     {gameInputs}
-                    <div><input type="text" name="gameType" placeholder="other" value={this.state.input} onChange={this.handleChange}/></div>
                 </div>
+                <label>
+                    <div><input type="text" name="gameType" placeholder="other game type" value={this.state.input} onChange={this.handleChange}/></div>
+                </label>
                 <button className="waves-effect waves-light btn clear-game" onClick={this.props.clearGame}>Clear Game</button>
                 <button className="waves-effect waves-light btn game-history" onClick={this.props.toggleHistory}>Game History</button>
                 {this.props.showHistory && <GameHistory

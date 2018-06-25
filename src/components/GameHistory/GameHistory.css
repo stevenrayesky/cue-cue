@@ -37,6 +37,7 @@
     background-color: #efefef;
     border-radius: 5px;
     padding: 5px;
+    align-items: center;
 }
 
 .history-list img {

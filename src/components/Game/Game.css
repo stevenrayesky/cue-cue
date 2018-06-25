@@ -57,11 +57,17 @@
 .game-types {
     display: flex;
     justify-content: center;
-    margin: 10px 0px;
+    margin: 10px 0px 0px;
 }
 
 .game-types div {
     padding: 15px;
+    flex: 1;
+}
+
+.Game input[type="text"] {
+    width: fit-content;
+    margin: 0px auto 25px;
 }
 
 .game-types label > input + div { 

@@ -5,7 +5,7 @@ import './GameHistory.css';
 const GameHistory = (props) => {
     const games = [...props.games];
     let list;
-    if(games.length === undefined) {
+    if(games.length === 0) {
         list = <h2>no games yet!</h2>
      } else {
         list = games.reverse().map((game) => {
@@ -17,6 +17,7 @@ const GameHistory = (props) => {
                         <img src={`/icons/${winner.icon}`} className="player-icon" alt="logo" />
                         <p>{winner.name}</p>
                     </div>
+                    <div>{game.gameType}</div>
                     <div className="history-loser">
                         <img src={`/icons/${loser.icon}`} className="player-icon" alt="logo" />
                         <p>{loser.name}</p>
