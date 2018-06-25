@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './index.css';
 import 'normalize.css';
-import registerServiceWorker from './registerServiceWorker';
 import SessionPicker from './components/SessionPicker/SessionPicker';
 import App from './components/App/App';
 
@@ -28,4 +27,3 @@ const NoMatch = ({ location }) => (
 )
 
 ReactDOM.render(<Root />, document.getElementById('root'));
-registerServiceWorker();
