@@ -18,7 +18,7 @@ class App extends Component {
       width: window.innerWidth,
       activeTab: "PlayerList",
       showHistory: false,
-      gameType: null
+      gameType: "8-Ball"
     }
 
     this.addPlayer = this.addPlayer.bind(this);
@@ -133,6 +133,8 @@ class App extends Component {
           toggleHistory={this.toggleHistory}
           showHistory={this.state.showHistory}
           games={this.state.games}
+          updateGameType={this.updateGameType}
+          gameType={this.state.gameType}
         />
       } else {
         tab = <LeaderBoard
@@ -175,6 +177,7 @@ class App extends Component {
               showHistory={this.state.showHistory}
               games={this.state.games}
               updateGameType={this.updateGameType}
+              gameType={this.state.gameType}
             />
             <LeaderBoard
               players={this.state.players}
