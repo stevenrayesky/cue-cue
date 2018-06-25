@@ -17,7 +17,8 @@ class App extends Component {
       player2: null,
       width: window.innerWidth,
       activeTab: "PlayerList",
-      showHistory: false
+      showHistory: false,
+      gameType: null
     }
 
     this.addPlayer = this.addPlayer.bind(this);
@@ -27,6 +28,7 @@ class App extends Component {
     this.changeTab = this.changeTab.bind(this);
     this.addGame = this.addGame.bind(this);
     this.toggleHistory = this.toggleHistory.bind(this);
+    this.updateGameType = this.updateGameType.bind(this);
   }
 
   componentWillMount() {
@@ -46,6 +48,11 @@ class App extends Component {
     base.syncState(`${this.props.match.params.sessionId}/players`, {
       context: this,
       state: 'players'
+    }
+    )
+    base.syncState(`${this.props.match.params.sessionId}/games`, {
+      context: this,
+      state: 'games'
     }
     )
   }
@@ -97,6 +104,10 @@ class App extends Component {
     this.setState({ showHistory: !this.state.showHistory })
   }
 
+  updateGameType(gameType){
+    this.setState({ gameType });
+  }
+
   render() {
     const { width, activeTab } = this.state;
     const isMobile = width <= 850;
@@ -116,8 +127,12 @@ class App extends Component {
           players={this.state.players}
           player1={this.state.player1}
           player2={this.state.player2}
-          updatePlayer={this.updatePlayer}
+          updatePlayers={this.updatePlayers}
+          addGame={this.addGame}
           clearGame={this.clearGame}
+          toggleHistory={this.toggleHistory}
+          showHistory={this.state.showHistory}
+          games={this.state.games}
         />
       } else {
         tab = <LeaderBoard
@@ -159,6 +174,7 @@ class App extends Component {
               toggleHistory={this.toggleHistory}
               showHistory={this.state.showHistory}
               games={this.state.games}
+              updateGameType={this.updateGameType}
             />
             <LeaderBoard
               players={this.state.players}
