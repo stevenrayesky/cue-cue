@@ -6,9 +6,13 @@ import GameHistory from '../GameHistory/GameHistory';
 class Game extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            input: ""
+        }
 
         this.renderPlayer = this.renderPlayer.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleClick(e, key){
@@ -55,7 +59,22 @@ class Game extends Component {
         )
     }
 
+    handleChange(event) {
+        const gameType = event.target.value;
+        (event.target.type === 'text') ? this.setState({ input: event.target.value }) : this.setState({ input: '' });
+        this.props.updateGameType(gameType);
+    }
+
     render() {
+        const gameTypes = [ "8-Ball", "9-Ball", "3-Ball", "1-Pocket", "Bank Pool"];
+        const gameInputs = gameTypes.map((type) => {
+            return (
+                <label key={type}>
+                    <input type="radio" name="gameType" value={type} onChange={this.handleChange}/>
+                    <div>{type}</div>
+                </label>
+            )
+        })
         return (
             <div className="Game mobile">
                 <h3>Current Game</h3>
@@ -68,6 +87,10 @@ class Game extends Component {
                     {this.renderPlayer(this.props.player1)}
                     {this.renderPlayer(this.props.player2)}
                 </CSSTransitionGroup>
+                <div className="game-types">
+                    {gameInputs}
+                    <div><input type="text" name="gameType" placeholder="other" value={this.state.input} onChange={this.handleChange}/></div>
+                </div>
                 <button className="waves-effect waves-light btn clear-game" onClick={this.props.clearGame}>Clear Game</button>
                 <button className="waves-effect waves-light btn game-history" onClick={this.props.toggleHistory}>Game History</button>
                 {this.props.showHistory && <GameHistory

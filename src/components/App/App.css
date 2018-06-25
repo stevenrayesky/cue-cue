@@ -33,6 +33,8 @@ secondary: #A7DB56, #86429E
 
 .btn {
   background-color: #86429E;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .btn:hover {
