@@ -14,15 +14,15 @@
     height: 120px;
     width: 120px;
     background-color: #EE6E5D;
-    padding: 15px;
+    padding: 10px;
     border-radius: 5px;
 }
 
 .player-active {
-    padding: 15px;
+    padding: 10px;
     transition: all 0.2s;
     cursor: pointer;
-    height: 150px;
+    height: 140px;
     background-color: #e0dcdcef;
     display: flex;
     flex-direction: column;

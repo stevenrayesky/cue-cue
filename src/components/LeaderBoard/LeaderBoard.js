@@ -27,7 +27,7 @@ class LeaderBoard extends Component {
     render() {
         return (
             <div className="LeaderBoard mobile">
-                <h3><span>Leader</span><span>Board</span></h3>
+                <h3>leaderboard</h3>
                 <CSSTransitionGroup
                     component="ul"
                     transitionName="leader-ani"

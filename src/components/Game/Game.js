@@ -79,7 +79,7 @@ class Game extends Component {
         })
         return (
             <div className="Game mobile">
-                <h3>Current Game</h3>
+                <h3>current game</h3>
                 <CSSTransitionGroup
                     component="div"
                     className="players"

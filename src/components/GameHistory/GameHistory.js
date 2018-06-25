@@ -29,7 +29,7 @@ const GameHistory = (props) => {
 
     return (
         <div className="GameHistory">
-            <h2>game history</h2>
+            <h3>game history</h3>
             <div className="GameHistory_title">
                 <div className="title winner-title">Winner</div>
                 <div id="triangle-right"></div>

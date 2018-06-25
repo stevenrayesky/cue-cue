@@ -65,13 +65,12 @@ class App extends Component {
   }
 
   setPlayer(key) {
-    // const player = this.state.players[key];
     if(!this.state.player1) {
       this.setState({ player1: key })
     } else if (key !== this.state.player1) {
       this.setState({ player2: key })
     } else {
-      alert("player1 can't be player2!");
+      alert("player 1 can't be player 2!");
     }
   }
 
